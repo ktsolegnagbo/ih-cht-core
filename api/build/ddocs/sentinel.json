@@ -1,0 +1,24 @@
+{
+  "docs": [
+    {
+      "build_info": {
+        "application": "medic",
+        "base_version": "4.10.0",
+        "namespace": "medic",
+        "author": "npm on kossi",
+        "schema_version": 2,
+        "time": "2024-08-14T11:41:43.565Z",
+        "build": "4.10.0-dev.1723635703462",
+        "version": "4.10.0-local-development"
+      },
+      "_id": "_design/sentinel",
+      "version": "4.10.0-dev.1723635703462",
+      "views": {
+        "outbound_push_tasks": {
+          "reduce": "_count",
+          "map": "function(doc) {\n  if (doc.type === 'task:outbound') {\n    emit();\n  }\n}"
+        }
+      }
+    }
+  ]
+}

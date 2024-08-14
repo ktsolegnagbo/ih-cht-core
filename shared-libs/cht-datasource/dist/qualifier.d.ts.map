@@ -1,0 +1,1 @@
+{"version":3,"file":"qualifier.d.ts","sourceRoot":"","sources":["../src/qualifier.ts"],"names":[],"mappings":"AAEA;;GAEG;AACH,MAAM,MAAM,aAAa,GAAG,QAAQ,CAAC;IAAE,IAAI,EAAE,MAAM,CAAA;CAAE,CAAC,CAAC;AAEvD;;;;;GAKG;AACH,eAAO,MAAM,MAAM,SAAU,MAAM,KAAG,aAKrC,CAAC;AAEF;;;;;GAKG;AACH,eAAO,MAAM,eAAe,eAAgB,OAAO;UArBN,MAAM;EAuBlD,CAAC"}

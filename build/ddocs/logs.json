@@ -1,0 +1,28 @@
+{
+  "docs": [
+    {
+      "_id": "_design/logs",
+      "build_info": {
+        "application": "medic",
+        "base_version": "4.10.0",
+        "build": "4.10.0-dev.1723635703462",
+        "author": "npm on kossi",
+        "time": "2024-08-14T11:41:43.565Z",
+        "namespace": "medic",
+        "version": "4.10.0-local-development",
+        "schema_version": 2
+      },
+      "views": {
+        "connected_users": {
+          "map": "function(doc) {\n  if (doc._id.indexOf('connected-user-') === 0) {\n    emit(doc.timestamp);\n  }\n}",
+          "reduce": "_count"
+        },
+        "replication_limit": {
+          "map": "function(doc) {\n  var DOC_IDS_WARN_LIMIT = 10000;\n\n  if (doc.count > DOC_IDS_WARN_LIMIT) {\n    emit(doc.user);\n  }\n}",
+          "reduce": "_count"
+        }
+      },
+      "version": "4.10.0-dev.1723635703462"
+    }
+  ]
+}
