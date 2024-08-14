@@ -1,0 +1,6 @@
+version: '3.9'
+services:
+    couchdb:
+        ports:
+          - "5984:5984"
+          - "5986:5986"

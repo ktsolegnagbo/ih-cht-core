@@ -1,0 +1,66 @@
+{
+  "extends": ["plugin:node/recommended"],
+  "env": {
+    "node": true
+  },
+  "plugins": ["compat"],
+  "parserOptions": {
+    "ecmaVersion": 2020
+  },
+  "rules": {
+    "no-console": "error",
+    "no-process-exit": "off",
+    "node/no-extraneous-require": ["error",
+      {
+        "allowModules": [
+          "@medic/bulk-docs-utils",
+          "@medic/cht-datasource",
+          "@medic/contact-types-utils",
+          "@medic/contacts",
+          "@medic/couch-request",
+          "@medic/infodoc",
+          "@medic/lineage",
+          "@medic/message-utils",
+          "@medic/outbound",
+          "@medic/phone-number",
+          "@medic/purging-utils",
+          "@medic/registration-utils",
+          "@medic/search",
+          "@medic/server-checks",
+          "@medic/settings",
+          "@medic/task-utils",
+          "@medic/tombstone-utils",
+          "@medic/transitions",
+          "@medic/translation-utils",
+          "@medic/user-management",
+          "@medic/validation",
+          "@medic/view-map-utils"
+        ]
+      }]
+  },
+  "overrides": [
+    {
+      "env": {
+        "browser": true
+      },
+      "files": [
+        "src/public/**/*.js"
+      ],
+      "rules": {
+        "no-console": "off",
+        "compat/compat": "error"
+      }
+    },
+    {
+      "files": [
+        "tests/**/*.js"
+      ],
+      "rules": {
+        "node/no-extraneous-require": "off"
+      }
+    }
+  ],
+  "globals": {
+    "emit": true
+  }
+}

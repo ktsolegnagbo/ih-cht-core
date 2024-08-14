@@ -1,0 +1,17 @@
+{
+  "name": "@medic/contacts",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "nyc --nycrcPath='../nyc.config.js' mocha ./test/**/*"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@medic/cht-datasource": "file:../cht-datasource",
+    "@medic/contact-types-utils": "file:../contact-types-utils",
+    "@medic/lineage": "file:../lineage",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1"
+  }
+}

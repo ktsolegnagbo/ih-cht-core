@@ -1,0 +1,42 @@
+{
+  "name": "@medic/transitions",
+  "version": "1.1.1",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "nyc --nycrcPath='../nyc.config.js' mocha ./test/**/*"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "jsverify": "^0.8.4"
+  },
+  "dependencies": {
+    "@medic/cht-datasource": "file:../cht-datasource",
+    "@medic/contact-types-utils": "file:../contact-types-utils",
+    "@medic/contacts": "file:../contacts",
+    "@medic/couch-request": "file:../couch-request",
+    "@medic/infodoc": "file:../infodoc",
+    "@medic/lineage": "file:../lineage",
+    "@medic/logger": "file:../logger",
+    "@medic/message-utils": "file:../message-utils",
+    "@medic/outbound": "file:../outbound",
+    "@medic/phone-number": "file:../phone-number",
+    "@medic/registration-utils": "file:../registration-utils",
+    "@medic/settings": "file:../settings",
+    "@medic/task-utils": "file:../task-utils",
+    "@medic/user-management": "file:../user-management",
+    "@medic/validation": "file:../validation",
+    "async": "^3.2.3",
+    "bikram-sambat": "^1.7.0",
+    "bikram-sambat-bootstrap": "^1.5.0",
+    "cron-validator": "^1.3.1",
+    "google-libphonenumber": "^3.2.31",
+    "gsm": "^0.1.4",
+    "later": "^1.2.0",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1",
+    "mustache": "^4.2.0",
+    "object-path": "^0.11.8",
+    "url-join": "^4.0.1"
+  }
+}
