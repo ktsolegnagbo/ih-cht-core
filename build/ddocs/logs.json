@@ -5,12 +5,12 @@
       "build_info": {
         "application": "medic",
         "base_version": "4.10.0",
-        "build": "4.10.0-dev.1723635703462",
         "author": "npm on kossi",
-        "time": "2024-08-14T11:41:43.565Z",
+        "time": "2024-08-15T00:08:10.760Z",
+        "schema_version": 2,
         "namespace": "medic",
         "version": "4.10.0-local-development",
-        "schema_version": 2
+        "build": "4.10.0-dev.1723680490643"
       },
       "views": {
         "connected_users": {
@@ -22,7 +22,7 @@
           "reduce": "_count"
         }
       },
-      "version": "4.10.0-dev.1723635703462"
+      "version": "4.10.0-dev.1723680490643"
     }
   ]
 }

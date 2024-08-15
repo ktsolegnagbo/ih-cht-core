@@ -170,13 +170,13 @@
 
         <ul class="list-inline">
           <li *ngFor="let partner of partners">
-            <span [innerHTML]="partner | partnerImage"></span>
+            <span class="partners-img" [innerHTML]="partner | partnerImage"></span>
           </li>
         </ul>
 
       </mat-card>
 
-      <div class="powered-by">
+      <div *ngIf="partners?.length" class="powered-by">
         <p translate>about.cht</p>
         <a href="https://integratehealth.org" target="_blank" rel="noopener noreferrer">
           <img src="/webapp/img/ih-logo.png" alt="Integrate Health" />

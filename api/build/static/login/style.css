@@ -15,8 +15,8 @@ body {
   margin: 0;
 }
 .logo {
-  width: 100%;
-  margin: 30px auto 60px auto;
+  width: 150px;
+  margin: 15px auto 30px auto;
   display: block;
 }
 label, input {
@@ -58,7 +58,7 @@ input {
   opacity: 0.65;
 }
 .center {
-  padding-top: 2em;
+  padding-top: 1em;
 }
 form {
   width: 300px;

@@ -38,19 +38,36 @@ export class FastActionButtonService {
     element.remove();
   }
 
-  private async filterActions(actions: FastAction[]): Promise<FastAction[]> {
-    const filteredActions: FastAction[] = [];
 
+  private async filterActions(actions: FastAction[], context?: ContactActionsContext): Promise<FastAction[]> {
+    const filteredActions: FastAction[] = [];
+    const user: any = await this.userSettingsService.get();
+    // context.parentFacilityId
+    // context.childContactTypes
     for (const action of actions) {
       if (await action.canDisplay()) {
-        filteredActions.push(action);
+        // ##################
+        if (context && context.parentFacilityId && user && user.facility_id) {
+          if (context.parentFacilityId === user.facility_id && (user.roles || []).includes('reco')) {
+            if (action.id !== 'person') {
+              // ##################
+              filteredActions.push(action);
+              // ##################
+            }
+          } else {
+            filteredActions.push(action);
+          }
+          // ##################
+        } else {
+          filteredActions.push(action);
+        }
       }
     }
 
     return filteredActions;
   }
 
-  private getFormTitle(labelKey?: string, label?: string): string|undefined {
+  private getFormTitle(labelKey?: string, label?: string): string | undefined {
     if (labelKey) {
       return this.translateService.instant(labelKey);
     }
@@ -62,7 +79,7 @@ export class FastActionButtonService {
 
   private getReportFormActions(
     xmlForms: Record<string, any>[] = [],
-    callbackContactReportModal:((form: Record<string, any>) => void) | null = null
+    callbackContactReportModal: ((form: Record<string, any>) => void) | null = null
   ): FastAction[] {
     return xmlForms
       .map(form => ({
@@ -124,7 +141,7 @@ export class FastActionButtonService {
       labelKey: 'fast_action_button.send_message',
       icon: { name: 'fa-envelope', type: IconType.FONT_AWESOME },
       canDisplay: async () => {
-        const permission = [ 'can_view_message_action' ];
+        const permission = ['can_view_message_action'];
         if (!canUseMailto()) {
           permission.push('can_edit');
         }
@@ -183,7 +200,7 @@ export class FastActionButtonService {
 
   getContactLeftSideActions(context: ContactActionsContext): Promise<FastAction[]> {
     const actions = this.getContactFormActions(context.parentFacilityId, context.childContactTypes, { from: 'list' });
-   
+
     return this.filterActions(actions);
   }
 
@@ -195,7 +212,7 @@ export class FastActionButtonService {
       ...this.getReportFormActions(context.xmlReportForms, context.callbackContactReportModal),
     ];
 
-    return this.filterActions(actions);
+    return this.filterActions(actions, context);
   }
 
   getMessageActions(context: CommunicationActionsContext): Promise<FastAction[]> {
@@ -239,7 +256,7 @@ interface ReportActionsContext {
 
 interface ContactActionsContext {
   parentFacilityId?: string;
-  parentFacility?:any;
+  parentFacility?: any;
   childContactTypes?: Record<string, any>[];
   xmlReportForms?: Record<string, any>[];
   communicationContext?: CommunicationActionsContext;

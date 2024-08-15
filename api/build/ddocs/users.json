@@ -3,16 +3,16 @@
     {
       "_id": "_design/users",
       "build_info": {
-        "application": "medic",
+        "build": "4.10.0-dev.1723680490643",
         "author": "npm on kossi",
-        "build": "4.10.0-dev.1723635703462",
         "namespace": "medic",
         "base_version": "4.10.0",
-        "schema_version": 2,
-        "time": "2024-08-14T11:41:43.565Z",
-        "version": "4.10.0-local-development"
+        "application": "medic",
+        "time": "2024-08-15T00:08:10.760Z",
+        "version": "4.10.0-local-development",
+        "schema_version": 2
       },
-      "version": "4.10.0-dev.1723635703462",
+      "version": "4.10.0-dev.1723680490643",
       "views": {
         "users_by_field": {
           "map": "function(doc) {\n  if (doc.contact_id) {\n    emit(['contact_id', doc.contact_id]);\n  }\n  if (doc.facility_id) {\n    var facilityIds = Array.isArray(doc.facility_id) ? doc.facility_id : [doc.facility_id];\n    facilityIds.forEach(function(facilityId) {\n      emit(['facility_id', facilityId]);\n    });\n  }\n}"

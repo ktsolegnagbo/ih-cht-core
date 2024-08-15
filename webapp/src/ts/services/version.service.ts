@@ -21,7 +21,8 @@ export class VersionService {
     if (version === buildInfo.base_version || !buildInfo.base_version) {
       return version;
     }
-    return `${version} (~${buildInfo.base_version})`;
+    // return `${version} (~${buildInfo.base_version})`;
+    return `${buildInfo.base_version}`;
   }
 
   getLocal () {

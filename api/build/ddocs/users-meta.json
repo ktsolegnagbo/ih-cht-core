@@ -3,24 +3,24 @@
     {
       "_id": "_design/users-meta",
       "build_info": {
-        "author": "npm on kossi",
         "application": "medic",
-        "build": "4.10.0-dev.1723635703462",
-        "namespace": "medic",
         "base_version": "4.10.0",
         "schema_version": 2,
-        "time": "2024-08-14T11:41:43.565Z",
+        "build": "4.10.0-dev.1723680490643",
+        "author": "npm on kossi",
+        "namespace": "medic",
+        "time": "2024-08-15T00:08:10.760Z",
         "version": "4.10.0-local-development"
       },
-      "version": "4.10.0-dev.1723635703462",
+      "version": "4.10.0-dev.1723680490643",
       "views": {
         "device_by_user": {
-          "reduce": "function (keys, values) {\n  var latest = { date: '1970-01-01' };\n  values.forEach(function(value) {\n    if (value.date > latest.date) {\n      latest = value;\n    }\n  });\n  return latest;\n}",
-          "map": "function(doc) {\n  if (\n    doc.type === 'telemetry' &&\n    doc.metadata &&\n    doc.metadata.user &&\n    doc.metadata.deviceId &&\n    doc.metadata.year &&\n    doc.metadata.month &&\n    doc.metadata.day\n  ) {\n    var pad = function (number) {\n      return number.toString().padStart(2, '0');\n    };\n\n    emit([doc.metadata.user, doc.metadata.deviceId], {\n      date: doc.metadata.year + '-' + pad(doc.metadata.month) + '-' + pad(doc.metadata.day),\n      id: doc._id,\n      device: {\n        userAgent: doc.device && doc.device.userAgent,\n        versions: {\n          apk: doc.device && doc.device.deviceInfo && doc.device.deviceInfo.app && doc.device.deviceInfo.app.version,\n          android: doc.device\n            && doc.device.deviceInfo\n            && doc.device.deviceInfo.software\n            && doc.device.deviceInfo.software.androidVersion,\n          cht: doc.metadata.versions && doc.metadata.versions.app,\n          settings: doc.metadata.versions && doc.metadata.versions.settings,\n        },\n      },\n    });\n  }\n}"
+          "map": "function(doc) {\n  if (\n    doc.type === 'telemetry' &&\n    doc.metadata &&\n    doc.metadata.user &&\n    doc.metadata.deviceId &&\n    doc.metadata.year &&\n    doc.metadata.month &&\n    doc.metadata.day\n  ) {\n    var pad = function (number) {\n      return number.toString().padStart(2, '0');\n    };\n\n    emit([doc.metadata.user, doc.metadata.deviceId], {\n      date: doc.metadata.year + '-' + pad(doc.metadata.month) + '-' + pad(doc.metadata.day),\n      id: doc._id,\n      device: {\n        userAgent: doc.device && doc.device.userAgent,\n        versions: {\n          apk: doc.device && doc.device.deviceInfo && doc.device.deviceInfo.app && doc.device.deviceInfo.app.version,\n          android: doc.device\n            && doc.device.deviceInfo\n            && doc.device.deviceInfo.software\n            && doc.device.deviceInfo.software.androidVersion,\n          cht: doc.metadata.versions && doc.metadata.versions.app,\n          settings: doc.metadata.versions && doc.metadata.versions.settings,\n        },\n      },\n    });\n  }\n}",
+          "reduce": "function (keys, values) {\n  var latest = { date: '1970-01-01' };\n  values.forEach(function(value) {\n    if (value.date > latest.date) {\n      latest = value;\n    }\n  });\n  return latest;\n}"
         },
         "feedback_by_date": {
-          "map": "function(doc) {\n  if (doc.type === 'feedback') {\n    emit(doc.meta.time);\n  }\n}",
-          "reduce": "_count"
+          "reduce": "_count",
+          "map": "function(doc) {\n  if (doc.type === 'feedback') {\n    emit(doc.meta.time);\n  }\n}"
         }
       }
     }

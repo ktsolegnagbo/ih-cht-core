@@ -17,5 +17,8 @@ export class ReloadingComponent {
   submit() {
     this.close(true);
     window.location.reload();
+    if (typeof window.medicmobile_android?.reloadAndroidApp === 'function') {
+      window.medicmobile_android.reloadAndroidApp();
+    }
   }
 }

@@ -9,9 +9,24 @@
     <link rel="manifest" href="/manifest.json">
   </head>
   <body data-default-locale="{{ defaultLocale }}" data-translations="{{ translations }}">
+    
+    <div style="display: inline-flex;">
+      <div>
+        <img style="width: 100px; margin: 15px 10px 0px 15px;" class="country-flag" src="{{ '/login/images/guinea-flag.png' }}" title="{{ 'Drapeau Guinee'}}">
+      </div>
+      <div>
+        <p style="font-size: 20px; color: white; font-weight: bold; margin-bottom: 3px; margin-top: 15px;">KENDEYA</p>
+        <p style="font-size: 14px; color: white; margin: 0px;">MINISTERE DE LA SANTE ET<br>DE L’HYGIENE PUBLIQUE</p>
+      </div>
+    </div>
+    
+    
     <div class="center">
       <form id="form" action="/medic/login" method="POST">
+        <p style="color: white; text-align: center;">REPUBLIQUE DE LA GUINEE</p>
+
         <img class="logo" src="{{ branding.logo }}" title="{{ branding.name }}">
+
         <p id="unsupported-browser" class="hidden">
           <span translate="login.unsupported_browser"></span>
           <span id="unsupported-browser-update"></span>
