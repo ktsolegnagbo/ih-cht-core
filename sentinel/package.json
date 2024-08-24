@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@medic/logger": "file:../shared-libs/logger",
-    "async": "^3.2.4",
+    "async": "^3.2.6",
     "bikram-sambat": "^1.7.0",
     "bikram-sambat-bootstrap": "^1.5.0",
     "cron-validator": "^1.3.1",
