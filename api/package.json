@@ -56,7 +56,7 @@
     "semver": "^7.5.4",
     "simple-password-tester": "^1.0.0",
     "url": "^0.11.1",
-    "url-join": "^4.0.1",
+    "url-join": "^5.0.0",
     "uuid": "^8.3.2",
     "winston": "^3.10.0",
     "workbox-build": "^7.0.0",
