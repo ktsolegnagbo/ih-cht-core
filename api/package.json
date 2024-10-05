@@ -29,7 +29,7 @@
     "express": "^4.18.2",
     "google-libphonenumber": "^3.2.33",
     "gsm": "^0.1.4",
-    "helmet": "^3.23.3",
+    "helmet": "^8.0.0",
     "http-proxy": "^1.18.1",
     "later": "^1.2.0",
     "locale": "^0.1.0",
